@@ -1,4 +1,4 @@
-[
+export const grammarN4s = [
     {
         "scope": "N4",
         "id": 1,
@@ -449,4 +449,4 @@
         "id": 90,
         "name": "～ちゃ／ちゃう（縮約形）"
     }
-]
+];
