@@ -13,7 +13,7 @@ interface TopicModel {
 export class AppComponent implements OnInit {
     title = 'angular-japanese-learn';
     topics: TopicModel[] = [];
-    grammar = {};
+    grammar: any = {};
   
     ngOnInit(): void {
         this.topics = this.getRandomTopics(3);
