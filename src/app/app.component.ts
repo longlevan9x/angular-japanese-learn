@@ -27,7 +27,7 @@ export class AppComponent implements OnInit {
 
     getRandomGrammar() {
         const shuffled = this.grammars.sort(() => Math.random() - 0.5);
-        return  this.grammars.slice(0, 1);
+        return  shuffled.slice(0, 1);
     }
 
     vnTopics = [
