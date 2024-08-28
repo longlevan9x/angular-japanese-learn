@@ -17,7 +17,8 @@ export class AppComponent implements OnInit {
   
     ngOnInit(): void {
         this.topics = this.getRandomTopics(3);
-        this.grammar = this.getRandomGrammar()
+        this.grammar = this.getRandomGrammar();
+      console.log(this.grammar);
     }
 
     getRandomTopics(count: number): TopicModel[] {
