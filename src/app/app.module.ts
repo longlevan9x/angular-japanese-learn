@@ -9,11 +9,12 @@ import en from '@angular/common/locales/en';
 import { provideAnimationsAsync } from '@angular/platform-browser/animations/async';
 import { provideHttpClient } from '@angular/common/http';
 import { NgZorroAntdModule } from './ngzorro-antd.module';
+import { NgZorroIconModule } from './ng-zorro-icon.module';
 
 registerLocaleData(en);
 
 @NgModule({
-  imports: [BrowserModule, FormsModule, CommonModule, NgZorroAntdModule],
+  imports: [BrowserModule, FormsModule, CommonModule, NgZorroAntdModule, NgZorroIconModule],
   declarations: [AppComponent],
   bootstrap: [AppComponent],
   schemas: [CUSTOM_ELEMENTS_SCHEMA],
