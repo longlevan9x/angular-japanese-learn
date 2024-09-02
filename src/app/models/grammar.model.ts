@@ -3,4 +3,6 @@ export interface GrammarModel {
     name?: string
     scope?: string
     mean?: string
+    book?: string
+    usage?: string
 }

@@ -3,6 +3,7 @@ import {grammarN3s} from './dumps/grammarN3.dump';
 import {GrammarModel} from './models/grammar.model';
 import {grammarN2s} from './dumps/grammarN2.dump';
 import {grammarN4s} from './dumps/grammarN4.dump';
+import { grammarN2trys } from './dumps/grammarN2try.dumps';
 
 interface TopicModel {
     key: string
@@ -33,7 +34,7 @@ export class AppComponent implements OnInit {
     }
 
     getRandomGrammar(): GrammarModel {
-        const grammars = [...grammarN3s, ...grammarN2s, ...grammarN4s];
+        const grammars = [...grammarN3s, ...grammarN2s, ...grammarN4s, ...grammarN2trys];
         const shuffled = grammars.sort(() => Math.random() - 0.5);
         return shuffled.slice(0, 1)[0];
     }
