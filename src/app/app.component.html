@@ -103,11 +103,14 @@
                         Câu trả lời
                     </label>
                     <div class="flex justify-end p-2">
-                        <button class="bg-gradient-to-r from-blue-500 to-green-400 text-white px-4 py-2 rounded">
+                        <button class="bg-gradient-to-r from-blue-500 to-green-400 text-white px-4 py-2 rounded" (click)="onCheckAnswer()">
                             Trả lời
                         </button>
                     </div>
                 </div>
+            </div>
+
+            <div [innerHTML]="answerResult">
             </div>
         </div>
     </div>
