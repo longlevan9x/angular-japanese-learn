@@ -82,6 +82,11 @@ export class AppComponent implements OnInit, OnDestroy {
         this.chatgptExtService.checkAnswer(prompt);
     }
 
+    onGetExample() {
+        const prompt = this.promptService.genGrammarxamplePrompt({ grammar: this.grammar.name, scope: this.grammar.scope });
+        this.chatgptExtService.checkAnswer(prompt);
+    }
+
     vnTopics = [
         { "key": "football", "value": "Bóng đá" },
         { "key": "cooking", "value": "Nấu ăn" },

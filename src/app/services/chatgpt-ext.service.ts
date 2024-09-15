@@ -12,12 +12,16 @@ export class ChatgptExtService {
         this.listenMessageFromExt();
     }
 
-    private __postMessage(mess: any) {
-        window.postMessage({ from: "WEBPAGE", action: "QUESTION", prompt: mess }, "*");
+    private __postMessage(m: { from: string, action: string, prompt: string }): void {
+        window.postMessage(m, "*");
     }
 
-    checkAnswer(answer: string) {
-        this.__postMessage(answer);
+    checkAnswer(answer: string): void {
+        this.__postMessage({ from: "WEBPAGE", action: "CHECK_ANSWER", prompt: answer });
+    }
+
+    getGrammarExample(prompt: string) {
+        this.__postMessage({ from: "WEBPAGE", action: "GET_GRAMMAR_EXAMPLE", prompt: prompt })
     }
 
     listenMessageFromExt() {
@@ -25,6 +29,7 @@ export class ChatgptExtService {
             // console.log("listenMessageFromExt event", event);
             const data = event.data;
             const origin = event.origin;
+            const action = data.action;
 
             if (data.from === "WEBPAGE") {
                 return;
