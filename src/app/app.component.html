@@ -95,10 +95,10 @@
 
             <div class="relative mb-8">
                 <div class="overflow-hidden">
-                    <textarea [(ngModel)]="answer" [class.border-blue-500]="answer!=''"
+                    <textarea id="txt-answer" [(ngModel)]="answer" [class.border-blue-500]="answer!=''"
                         [class.border-gray-300]="answer==''"
                         class="w-full p-3 h-24 resize-none outline-none  focus:border-blue-500 shadow-sm  bg-white border rounded-md focus:outline-none transition-all placeholder-transparent peer backdrop-blur-md"></textarea>
-                    <label for="beautiful-input" [class.-translate-y-6]="answer!=''"
+                    <label for="txt-answer" [class.-translate-y-6]="answer!=''"
                         class="absolute left-4 top-4 text-gray-600 text-sm transition-all transform peer-placeholder-shown:scale-100 peer-placeholder-shown:translate-y-0 peer-focus:-translate-y-6 peer-focus:scale-90 backdrop-filter backdrop-blur-lg bg-white px-2">
                         Câu trả lời
                     </label>
