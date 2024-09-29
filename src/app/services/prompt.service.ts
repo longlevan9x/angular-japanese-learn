@@ -24,6 +24,7 @@ export class PromptService {
         let prompts = [];
         prompts.push(`Ngữ pháp: ${input.grammar}`);
         prompts.push(`Trình độ: ${input.scope}`);
+        prompts.push("Hãy gợi ý cách dịch của ngữ pháp.");
         prompts.push("Hãy giải thích cách dùng, dùng trong trường hợp nào.");
         prompts.push("Hãy giải thích dùng trong ngữ cảnh nào. Ví dụ: văn nói, văn viết, trang trọng, cuộc sống.");
         prompts.push("Giải thích cụ thể cách kết hợp của các thể, động từ, danh từ, tính từ. Ví dụ Vて＋から.")
