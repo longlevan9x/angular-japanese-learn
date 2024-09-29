@@ -6,6 +6,10 @@ const routes: Routes = [
     {
         path: '',
         component: PromptComponent
+    },
+    {
+        path: 'vocabularies',
+        loadChildren: () => import('./modules/vocabulary/vocabulary.module').then(m => m.VocabularyModule)
     }
 ];
 
