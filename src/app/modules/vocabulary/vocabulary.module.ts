@@ -5,10 +5,12 @@ import { VocabularyRoutingModule } from './vocabulary-routing.module';
 import { VocabularyListComponent } from './vocabulary-list/vocabulary-list.component';
 import { SharedModule } from '../shared/shared.module';
 import { NgZorroAntdModule } from '../../ngzorro-antd.module';
+import { LessonListComponent } from './lesson-list/lesson-list.component';
 
 @NgModule({
     declarations: [
         VocabularyListComponent,
+        LessonListComponent,
     ],
     schemas: [CUSTOM_ELEMENTS_SCHEMA],
     imports: [
