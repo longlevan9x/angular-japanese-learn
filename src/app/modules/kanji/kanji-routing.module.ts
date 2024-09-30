@@ -1,11 +1,11 @@
 import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
-import { VocabularyListComponent } from './vocabulary-list/vocabulary-list.component';
+import { KanjiListComponent } from './kanji-list/kanji-list.component';
 
 const routes: Routes = [
     {
         path: '',
-        component: VocabularyListComponent
+        component: KanjiListComponent
     }
 ];
 
@@ -13,4 +13,4 @@ const routes: Routes = [
     imports: [RouterModule.forChild(routes)],
     exports: [RouterModule]
 })
-export class VocabularyRoutingModule { }
+export class KanjiRoutingModule { }

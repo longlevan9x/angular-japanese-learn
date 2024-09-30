@@ -1,7 +1,8 @@
 import { CUSTOM_ELEMENTS_SCHEMA, NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
-import { NavComponent } from './components/nav/nav.component';
 
+import { SharedRoutingModule } from './shared-routing.module';
+import { NavComponent } from './nav/nav.component';
 
 
 @NgModule({
@@ -10,8 +11,10 @@ import { NavComponent } from './components/nav/nav.component';
     ],
     schemas: [CUSTOM_ELEMENTS_SCHEMA],
     imports: [
-        CommonModule
+        CommonModule,
+        SharedRoutingModule
     ],
     exports: [NavComponent]
+
 })
 export class SharedModule { }

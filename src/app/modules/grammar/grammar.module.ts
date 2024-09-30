@@ -1,21 +1,22 @@
 import { CUSTOM_ELEMENTS_SCHEMA, NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
 
-import { VocabularyRoutingModule } from './vocabulary-routing.module';
-import { VocabularyListComponent } from './vocabulary-list/vocabulary-list.component';
-import { SharedModule } from '../shared/shared.module';
+import { GrammarRoutingModule } from './grammar-routing.module';
 import { NgZorroAntdModule } from '../../ngzorro-antd.module';
+import { SharedModule } from '../shared/shared.module';
+import { GrammarListComponent } from './grammar-list/grammar-list.component';
+
 
 @NgModule({
     declarations: [
-        VocabularyListComponent,
+        GrammarListComponent
     ],
     schemas: [CUSTOM_ELEMENTS_SCHEMA],
     imports: [
         CommonModule,
-        VocabularyRoutingModule,
+        GrammarRoutingModule,
         SharedModule,
         NgZorroAntdModule
     ]
 })
-export class VocabularyModule { }
+export class GrammarModule { }

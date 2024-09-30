@@ -1,13 +1,13 @@
 import { Component, OnInit } from '@angular/core';
-import { GrammarService } from '../../../../../services/grammar.service';
-import { GrammarModel } from '../../../../../models/grammar.model';
+import { GrammarModel } from '../../../models/grammar.model';
+import { GrammarService } from '../../../services/grammar.service';
 
 @Component({
-    selector: 'app-vocabulary-list',
-    templateUrl: './vocabulary-list.component.html',
-    styleUrl: './vocabulary-list.component.scss'
+    selector: 'app-grammar-list',
+    templateUrl: './grammar-list.component.html',
+    styleUrl: './grammar-list.component.scss'
 })
-export class VocabularyListComponent implements OnInit {
+export class GrammarListComponent implements OnInit {
     grammars: GrammarModel[] = [];
 
     filterFn = {
