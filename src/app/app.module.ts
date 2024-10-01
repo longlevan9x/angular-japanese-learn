@@ -18,6 +18,7 @@ import { VocabularyListComponent } from './components/vocabularies/vocabulary-li
 import { NavComponent } from './components/layouts/nav/nav.component';
 import { LessonListComponent } from './components/vocabularies/lesson-list/lesson-list.component';
 import { LessonCardComponent } from './components/shareds/lesson-card/lesson-card.component';
+import { PracticeLayoutComponent } from './components/layouts/practice-layout/practice-layout.component';
 
 registerLocaleData(en);
 
@@ -31,6 +32,7 @@ registerLocaleData(en);
         NavComponent,
         LessonListComponent,
         LessonCardComponent,
+        PracticeLayoutComponent,
     ],
     imports: [
         BrowserModule,
