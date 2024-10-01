@@ -4,11 +4,10 @@ import { Observable } from 'rxjs';
 import { GithubService } from './github.service';
 
 @Injectable({
-    providedIn: 'root'
+    providedIn: 'root',
 })
 export class KanjiService {
-
-    constructor(private githubService: GithubService) { }
+    constructor(private githubService: GithubService) {}
 
     getKanjiN4MNN(): Observable<KanjiModel> {
         return this.githubService.getKanjis('kanjiN4_MNN.json');

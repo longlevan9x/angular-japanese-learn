@@ -1,18 +1,15 @@
-import { NgModule } from "@angular/core";
-import { NzIconModule, NZ_ICONS } from "ng-zorro-antd/icon";
+import { NgModule } from '@angular/core';
+import { NzIconModule, NZ_ICONS } from 'ng-zorro-antd/icon';
 import {
     CaretRightOutline,
-    CaretDownOutline
+    CaretDownOutline,
 } from '@ant-design/icons-angular/icons';
 
-const icons = [
-    CaretRightOutline,
-    CaretDownOutline
-];
+const icons = [CaretRightOutline, CaretDownOutline];
 
 @NgModule({
     imports: [NzIconModule],
     exports: [NzIconModule],
     providers: [{ provide: NZ_ICONS, useValue: icons }],
 })
-export class NgZorroIconModule { }
+export class NgZorroIconModule {}

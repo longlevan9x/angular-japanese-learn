@@ -12,13 +12,25 @@ import { provideAnimationsAsync } from '@angular/platform-browser/animations/asy
 import { NZ_I18N, en_US } from 'ng-zorro-antd/i18n';
 import en from '@angular/common/locales/en';
 import { PromptComponent } from './components/prompts/prompt/prompt.component';
+import { GrammarListComponent } from './components/grammars/grammar-list/grammar-list.component';
+import { KanjiListComponent } from './components/kanjis/kanji-list/kanji-list.component';
+import { VocabularyListComponent } from './components/vocabularies/vocabulary-list/vocabulary-list.component';
+import { NavComponent } from './components/layouts/nav/nav.component';
+import { LessonListComponent } from './components/vocabularies/lesson-list/lesson-list.component';
+import { LessonCardComponent } from './components/shareds/lesson-card/lesson-card.component';
 
 registerLocaleData(en);
 
 @NgModule({
     declarations: [
         AppComponent,
-        PromptComponent
+        PromptComponent,
+        GrammarListComponent,
+        KanjiListComponent,
+        VocabularyListComponent,
+        NavComponent,
+        LessonListComponent,
+        LessonCardComponent,
     ],
     imports: [
         BrowserModule,
@@ -26,14 +38,14 @@ registerLocaleData(en);
         FormsModule,
         CommonModule,
         NgZorroAntdModule,
-        NgZorroIconModule
+        NgZorroIconModule,
     ],
     schemas: [CUSTOM_ELEMENTS_SCHEMA],
     providers: [
         { provide: NZ_I18N, useValue: en_US },
         provideAnimationsAsync(),
-        provideHttpClient()
+        provideHttpClient(),
     ],
-    bootstrap: [AppComponent]
+    bootstrap: [AppComponent],
 })
-export class AppModule { }
+export class AppModule {}

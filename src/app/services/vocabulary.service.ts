@@ -5,11 +5,10 @@ import { GithubService } from './github.service';
 import { VocabularyModel } from '../models/vocabulary.model';
 
 @Injectable({
-    providedIn: 'root'
+    providedIn: 'root',
 })
 export class VocabularyService {
-
-    constructor(private githubService: GithubService) { }
+    constructor(private githubService: GithubService) {}
 
     getVocabularyN4MNN(): Observable<VocabularyModel> {
         return this.githubService.getVocabularies('vocabularyN4_MNN.json');

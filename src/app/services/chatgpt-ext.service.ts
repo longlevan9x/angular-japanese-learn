@@ -2,26 +2,39 @@ import { Injectable } from '@angular/core';
 import { BehaviorSubject, Observable } from 'rxjs';
 
 @Injectable({
-    providedIn: 'root'
+    providedIn: 'root',
 })
 export class ChatgptExtService {
-
-    extChatgptAnswerSub$: BehaviorSubject<string> = new BehaviorSubject<string>("");
+    extChatgptAnswerSub$: BehaviorSubject<string> = new BehaviorSubject<string>(
+        '',
+    );
 
     constructor() {
         this.listenMessageFromExt();
     }
 
-    private __postMessage(m: { from: string, action: string, prompt: string }): void {
-        window.postMessage(m, "*");
+    private __postMessage(m: {
+        from: string;
+        action: string;
+        prompt: string;
+    }): void {
+        window.postMessage(m, '*');
     }
 
     checkAnswer(answer: string): void {
-        this.__postMessage({ from: "WEBPAGE", action: "CHECK_ANSWER", prompt: answer });
+        this.__postMessage({
+            from: 'WEBPAGE',
+            action: 'CHECK_ANSWER',
+            prompt: answer,
+        });
     }
 
     getGrammarExample(prompt: string) {
-        this.__postMessage({ from: "WEBPAGE", action: "GET_GRAMMAR_EXAMPLE", prompt: prompt })
+        this.__postMessage({
+            from: 'WEBPAGE',
+            action: 'GET_GRAMMAR_EXAMPLE',
+            prompt: prompt,
+        });
     }
 
     listenMessageFromExt() {
@@ -31,7 +44,7 @@ export class ChatgptExtService {
             const origin = event.origin;
             const action = data.action;
 
-            if (data.from === "WEBPAGE") {
+            if (data.from === 'WEBPAGE') {
                 return;
             }
 

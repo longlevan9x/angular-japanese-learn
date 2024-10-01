@@ -5,24 +5,12 @@ import { PromptComponent } from './components/prompts/prompt/prompt.component';
 const routes: Routes = [
     {
         path: '',
-        component: PromptComponent
+        component: PromptComponent,
     },
-    {
-        path: 'vocabularies',
-        loadChildren: () => import('./modules/vocabulary/vocabulary.module').then(m => m.VocabularyModule)
-    },
-    {
-        path: 'grammars',
-        loadChildren: () => import('./modules/grammar/grammar.module').then(m => m.GrammarModule)
-    },
-    {
-        path: 'kanjis',
-        loadChildren: () => import('./modules/kanji/kanji.module').then(m => m.KanjiModule)
-    }
 ];
 
 @NgModule({
     imports: [RouterModule.forRoot(routes)],
-    exports: [RouterModule]
+    exports: [RouterModule],
 })
-export class AppRoutingModule { }
+export class AppRoutingModule {}

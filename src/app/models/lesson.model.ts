@@ -1,4 +1,4 @@
 export interface LessonModel {
-    lesson: string
-    url: string
+    lesson: string;
+    url: string;
 }
