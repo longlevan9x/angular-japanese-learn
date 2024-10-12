@@ -1,44 +1,37 @@
 <div class="relative flex">
-    <table class="w-full text-sm text-left text-gray-500 ">
-        <thead class="text-gray-700 uppercase bg-gray-200 ">
+    <table class="w-full text-sm text-left text-gray-500">
+        <thead class="text-gray-700 uppercase bg-gray-200">
             <tr>
-                <th scope="col" class="px-6 py-3">
-                    Từ vựng
-                </th>
+                <th scope="col" class="px-6 py-3">Từ vựng</th>
 
-                <th scope="col" class="px-6 py-3">
-                    Nghĩa
-                </th>
+                <th scope="col" class="px-6 py-3">Nghĩa</th>
 
-                <th scope="col" class="px-6 py-3">
-                    Hán Tự
-                </th>
-                <th scope="col" class="px-6 py-3">
-                    Âm Hán
-                </th>
-                <th scope="col" class="px-6 py-3">
-                    Phát Âm
-                </th>
-
+                <th scope="col" class="px-6 py-3">Hán Tự</th>
+                <th scope="col" class="px-6 py-3">Âm Hán</th>
+                <th scope="col" class="px-6 py-3">Phát Âm</th>
             </tr>
         </thead>
         <tbody>
-            <tr class="bg-white border-b hover:bg-gray-100" *ngFor="let vocabulary of vocabularies">
-                <th scope="row" class="px-6 py-4 font-medium text-gray-600 ">
-                    {{vocabulary.vocabulary}}
+            <tr
+                class="bg-white border-b hover:bg-gray-100"
+                *ngFor="let vocabulary of vocabularies"
+            >
+                <th scope="row" class="px-6 py-4 font-medium text-gray-600">
+                    {{ vocabulary.vocabulary }}
                 </th>
-                <th scope="row" class="px-6 py-4 font-medium text-gray-600 ">
-                    {{vocabulary.meanVN}}
+                <th scope="row" class="px-6 py-4 font-medium text-gray-600">
+                    {{ vocabulary.meanVN }}
                 </th>
-                <th scope="row" class="px-6 py-4 font-medium text-gray-600 ">
-                    {{vocabulary.kanji}}
+                <th scope="row" class="px-6 py-4 font-medium text-gray-600">
+                    {{ vocabulary.kanji }}
                 </th>
-                <th scope="row" class="px-6 py-4 font-medium text-gray-600 ">
-                    {{vocabulary.kanjiVN}}
+                <th scope="row" class="px-6 py-4 font-medium text-gray-600">
+                    {{ vocabulary.kanjiVN }}
                 </th>
-                <th scope="row" class="px-6 py-4 font-medium text-gray-600 ">
-
-                </th>
+                <th
+                    scope="row"
+                    class="px-6 py-4 font-medium text-gray-600"
+                ></th>
             </tr>
         </tbody>
     </table>

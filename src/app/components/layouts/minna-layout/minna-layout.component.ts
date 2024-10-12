@@ -7,7 +7,7 @@ import { LessonService } from '../../../services/lesson.service';
 @Component({
     selector: 'app-minna-layout',
     templateUrl: './minna-layout.component.html',
-    styleUrl: './minna-layout.component.scss'
+    styleUrl: './minna-layout.component.scss',
 })
 export class MinnaLayoutComponent implements OnInit {
     lessonId: number = 0;
@@ -17,9 +17,8 @@ export class MinnaLayoutComponent implements OnInit {
     constructor(
         private activatedRoute: ActivatedRoute,
         private lessonService: LessonService,
-        private router: Router
-    ) {
-    }
+        private router: Router,
+    ) {}
 
     ngOnInit(): void {
         this.lessonId = this.getLessonIdFromUrl(this.router.url);
@@ -32,15 +31,15 @@ export class MinnaLayoutComponent implements OnInit {
 
         this.lessons = this.lessonService.getVocabularyLessons(50);
 
-        this.subjects.push({ name: "Từ vựng", url: 'vocabulary' });
-        this.subjects.push({ name: "Ngữ pháp", url: 'grammar' });
-        this.subjects.push({ name: "Hán tự", url: 'kanji' });
-        this.subjects.push({ name: "Luyện đọc" });
-        this.subjects.push({ name: "Hội thoại" });
-        this.subjects.push({ name: "Luyện nghe" });
-        this.subjects.push({ name: "Bài tập" });
-        this.subjects.push({ name: "Kiểm tra" });
-        this.subjects.push({ name: "Tham khảo" });
+        this.subjects.push({ name: 'Từ vựng', url: 'vocabulary' });
+        this.subjects.push({ name: 'Ngữ pháp', url: 'grammar' });
+        this.subjects.push({ name: 'Hán tự', url: 'kanji' });
+        this.subjects.push({ name: 'Luyện đọc' });
+        this.subjects.push({ name: 'Hội thoại' });
+        this.subjects.push({ name: 'Luyện nghe' });
+        this.subjects.push({ name: 'Bài tập' });
+        this.subjects.push({ name: 'Kiểm tra' });
+        this.subjects.push({ name: 'Tham khảo' });
     }
 
     getSubjectUrl(url?: string): string {
@@ -62,7 +61,8 @@ export class MinnaLayoutComponent implements OnInit {
 
     onChangeLesson(id: number): void {
         id = id + 1;
-        this.router.navigateByUrl(this.router.url.replace(this.lessonId.toString(), id.toString()));
+        this.router.navigateByUrl(
+            this.router.url.replace(this.lessonId.toString(), id.toString()),
+        );
     }
-
 }

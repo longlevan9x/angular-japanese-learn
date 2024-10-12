@@ -1,4 +1,4 @@
 export interface SubjectModel {
-    name: string
-    url?: string
+    name: string;
+    url?: string;
 }

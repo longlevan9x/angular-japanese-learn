@@ -10,9 +10,7 @@ import { LessonService } from '../../../../services/lesson.service';
 export class VocabularyLessonListComponent implements OnInit {
     lessons: LessonModel[] = [];
 
-    constructor(private lessonService: LessonService) {
-
-    }
+    constructor(private lessonService: LessonService) {}
 
     ngOnInit(): void {
         this.lessons = this.lessonService.getVocabularyLessons(50);

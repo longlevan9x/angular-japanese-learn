@@ -39,20 +39,20 @@ const routes: Routes = [
                         children: [
                             {
                                 path: '',
-                                component: GrammarListComponent
+                                component: GrammarListComponent,
                             },
                             {
                                 path: ':id',
-                                component: GrammarListComponent
-                            }
-                        ]
+                                component: GrammarListComponent,
+                            },
+                        ],
                     },
                     {
                         path: 'kanji',
                         component: KanjiListComponent,
                     },
-                ]
-            }
+                ],
+            },
         ],
     },
     // {
@@ -65,4 +65,4 @@ const routes: Routes = [
     imports: [RouterModule.forRoot(routes)],
     exports: [RouterModule],
 })
-export class AppRoutingModule { }
+export class AppRoutingModule {}

@@ -9,8 +9,8 @@ import { NavModel } from '../../../models/nav';
 export class NavComponent implements OnInit {
     navs: NavModel[] = [
         {
-            name: "Trang chủ",
-            path: 'pratice'
+            name: 'Trang chủ',
+            path: 'pratice',
         },
         {
             name: 'Minna',
@@ -18,39 +18,39 @@ export class NavComponent implements OnInit {
             children: [
                 {
                     name: 'Từ vựng',
-                    path: 'vocabulary'
+                    path: 'vocabulary',
                 },
                 {
                     name: 'Ngữ pháp',
-                    path: 'grammar'
+                    path: 'grammar',
                 },
                 {
                     name: 'Hán tự',
-                    path: 'kanji'
-                }
-            ]
-        }
+                    path: 'kanji',
+                },
+            ],
+        },
     ];
 
     ngOnInit(): void {
         this.navs = this.navRecursive(this.navs);
     }
 
-    navRecursive(navs?: NavModel[], parent?: NavModel): NavModel[]  {
-        if(!navs) {
+    navRecursive(navs?: NavModel[], parent?: NavModel): NavModel[] {
+        if (!navs) {
             return [];
         }
 
-        navs = navs?.map(nav => {
+        navs = navs?.map((nav) => {
             let parentPath = parent?.path || '';
 
-            if(parentPath && !parentPath?.startsWith('/')) {
+            if (parentPath && !parentPath?.startsWith('/')) {
                 parentPath = '/' + parent?.path;
             }
 
             nav.path = [parent?.path, nav.path].join('/');
 
-            if( nav.children?.length) {
+            if (nav.children?.length) {
                 nav.children = this.navRecursive(nav.children, nav);
             }
 

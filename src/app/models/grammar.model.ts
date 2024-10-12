@@ -13,5 +13,5 @@ export interface GrammarModel {
     lesson?: number;
 
     // virtual
-    active?: boolean
+    active?: boolean;
 }

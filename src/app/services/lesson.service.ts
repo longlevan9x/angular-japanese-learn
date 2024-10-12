@@ -2,13 +2,16 @@ import { Injectable } from '@angular/core';
 import { LessonModel } from '../models/lesson.model';
 
 @Injectable({
-    providedIn: 'root'
+    providedIn: 'root',
 })
 export class LessonService {
+    constructor() {}
 
-    constructor() { }
-
-    private __genLessons(length: number, type: string, url: string = ''): LessonModel[] {
+    private __genLessons(
+        length: number,
+        type: string,
+        url: string = '',
+    ): LessonModel[] {
         const lessons: LessonModel[] = [];
 
         for (let index = 0; index < length; index++) {

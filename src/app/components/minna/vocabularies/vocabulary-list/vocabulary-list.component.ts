@@ -20,13 +20,13 @@ export class VocabularyListComponent implements OnInit {
     constructor(
         private vocabularyService: VocabularyService,
         private activatedRoute: ActivatedRoute,
-    ) { }
+    ) {}
 
     ngOnInit(): void {
         this.activatedRoute.params.subscribe((params: any) => {
             let lessonId: any = parseInt(params.id) ?? 0;
             this.lessonId = lessonId;
-            this.getVocabularies(lessonId)
+            this.getVocabularies(lessonId);
         });
     }
 

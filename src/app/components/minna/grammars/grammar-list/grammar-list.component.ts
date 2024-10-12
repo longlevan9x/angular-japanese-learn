@@ -13,10 +13,10 @@ export class GrammarListComponent implements OnInit {
     grammars: GrammarModel[] = [];
     lessonId: number = 0;
 
-    constructor(private grammarService: GrammarService,
+    constructor(
+        private grammarService: GrammarService,
         private activatedRoute: ActivatedRoute,
-
-    ) { }
+    ) {}
 
     ngOnInit(): void {
         this.activatedRoute.params.subscribe((params: any) => {
@@ -35,12 +35,12 @@ export class GrammarListComponent implements OnInit {
                 ),
             )
             .subscribe((results: any[]) => {
-                results = results.map(r => {
+                results = results.map((r) => {
                     r.active = true;
                     return r;
                 });
                 this.grammars = results as any;
-                console.log(this.grammars)
+                console.log(this.grammars);
             });
     }
 
