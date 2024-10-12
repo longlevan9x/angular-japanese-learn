@@ -40,9 +40,10 @@ export class GrammarListComponent implements OnInit {
                     return r;
                 });
                 this.grammars = results as any;
+                console.log(this.grammars)
             });
     }
-    
+
     toggleDetail(index: number, grammar: GrammarModel): void {
         grammar.active = !grammar.active;
     }

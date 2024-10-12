@@ -16,14 +16,28 @@
 
                 <div>
                     <div class="p-3 ml-7" *ngIf="grammar.active">
-                        <div [outerHTML]="grammar.structure"></div>
-                        <div [outerHTML]="grammar.mean"></div>
-
-                        <ng-container *ngFor="let example of grammar.examples">
-                            <p class="text-base leading-6 text-gray-800">
-                                {{example.word}}
-                            </p>
-                        </ng-container>
+                        <ul class="list-disc gap-y-3  flex flex-col">
+                            <li *ngIf="grammar.structure">
+                                <p class="font-medium mb-1">Cấu trúc</p>
+                                <div [outerHTML]="grammar.structure"></div>
+                            </li>
+                            <li *ngIf="grammar.mean">
+                                <p class="font-medium mb-1">Ý nghĩa</p>
+                                <div [outerHTML]="grammar.mean"></div>
+                            </li>
+                            <li *ngIf="grammar.explain">
+                                <p class="font-medium mb-1">Giải thích</p>
+                                <div [outerHTML]="grammar.explain"></div>
+                            </li>
+                            <li *ngIf="grammar.examples?.length">
+                                <p class="font-medium mb-1">Ví dụ</p>
+                                <ng-container *ngFor="let example of grammar.examples">
+                                    <p class="text-base leading-6 text-gray-800">
+                                        {{example.word}}
+                                    </p>
+                                </ng-container>
+                            </li>
+                        </ul>
                     </div>
                 </div>
 
