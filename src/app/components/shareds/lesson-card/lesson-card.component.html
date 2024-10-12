@@ -29,6 +29,7 @@
 
 <ng-template #lessonDetail let-lesson="lesson">
     <li
+        [routerLink]="lesson.id"
         class="p-3 bg-white border border-gray-200 rounded-md hover:bg-teal-100 cursor-pointer"
     >
         <h3 class="text-teal-600 font-semibold">{{ lesson.lesson }}</h3>

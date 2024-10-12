@@ -12,13 +12,14 @@ import { provideAnimationsAsync } from '@angular/platform-browser/animations/asy
 import { NZ_I18N, en_US } from 'ng-zorro-antd/i18n';
 import en from '@angular/common/locales/en';
 import { PromptComponent } from './components/prompts/prompt/prompt.component';
-import { GrammarListComponent } from './components/grammars/grammar-list/grammar-list.component';
 import { KanjiListComponent } from './components/kanjis/kanji-list/kanji-list.component';
-import { VocabularyListComponent } from './components/vocabularies/vocabulary-list/vocabulary-list.component';
 import { NavComponent } from './components/layouts/nav/nav.component';
-import { LessonListComponent } from './components/vocabularies/lesson-list/lesson-list.component';
 import { LessonCardComponent } from './components/shareds/lesson-card/lesson-card.component';
 import { PracticeLayoutComponent } from './components/layouts/practice-layout/practice-layout.component';
+import { MinnaLayoutComponent } from './components/layouts/minna-layout/minna-layout.component';
+import { VocabularyLessonListComponent } from './components/minna/vocabularies/vocabulary-lesson-list/vocabulary-lesson-list.component';
+import { VocabularyListComponent } from './components/minna/vocabularies/vocabulary-list/vocabulary-list.component';
+import { GrammarListComponent } from './components/minna/grammars/grammar-list/grammar-list.component';
 
 registerLocaleData(en);
 
@@ -30,9 +31,10 @@ registerLocaleData(en);
         KanjiListComponent,
         VocabularyListComponent,
         NavComponent,
-        LessonListComponent,
         LessonCardComponent,
         PracticeLayoutComponent,
+        VocabularyLessonListComponent,
+        MinnaLayoutComponent,
     ],
     imports: [
         BrowserModule,

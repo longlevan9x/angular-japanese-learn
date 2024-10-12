@@ -11,4 +11,7 @@ export interface GrammarModel {
     explain?: string;
     examples?: { word?: string; mean?: string }[];
     lesson?: number;
+
+    // virtual
+    active?: boolean
 }

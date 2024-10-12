@@ -3,6 +3,7 @@ import { NzIconModule, NZ_ICONS } from 'ng-zorro-antd/icon';
 import {
     CaretRightOutline,
     CaretDownOutline,
+    CaretUpOutline,
 } from '@ant-design/icons-angular/icons';
 
 const icons = [CaretRightOutline, CaretDownOutline];

@@ -1,7 +1,7 @@
 import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { URL } from '../constants/url';
-import { Observable } from 'rxjs';
+import { Observable, tap } from 'rxjs';
 
 @Injectable({
     providedIn: 'root',
@@ -9,6 +9,9 @@ import { Observable } from 'rxjs';
 export class GithubService {
     constructor(private httpClient: HttpClient) {}
 
+    headers = {
+        ContentType: 'application/json',
+    };
     getGrammars<T>(url: string): Observable<T> {
         const urls = [URL.RAW_GITHUB, URL.GRAMMAR, url];
 

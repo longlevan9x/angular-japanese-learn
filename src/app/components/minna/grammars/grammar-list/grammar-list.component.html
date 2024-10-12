@@ -1,0 +1,33 @@
+<div>
+    <ul>
+        <ng-container *ngFor="let grammar of grammars;let i = index">
+            <li class="flex flex-col justify-between bg-white border border-gray-200 rounded-md cursor-pointer  mb-2">
+                <div class="flex justify-between  hover:bg-teal-100 p-3" (click)="toggleDetail(i, grammar)">
+                    <div class="flex gap-x-2">
+                        <p class="border rounded-full w-6 h-6 flex items-center justify-center">{{i+1}}</p>
+                        <p class="text-lg font-semibold leading-6 text-gray-800">{{grammar.title}}</p>
+                    </div>
+                    <div>
+                        <span nz-icon nzType="caret-right" class="transition duration-1000" nzTheme="outline"
+                            *ngIf="!grammar.active"></span>
+                        <span nz-icon nzType="caret-down" nzTheme="outline" *ngIf="grammar.active"></span>
+                    </div>
+                </div>
+
+                <div>
+                    <div class="p-3 ml-7" *ngIf="grammar.active">
+                        <div [outerHTML]="grammar.structure"></div>
+                        <div [outerHTML]="grammar.mean"></div>
+
+                        <ng-container *ngFor="let example of grammar.examples">
+                            <p class="text-base leading-6 text-gray-800">
+                                {{example.word}}
+                            </p>
+                        </ng-container>
+                    </div>
+                </div>
+
+            </li>
+        </ng-container>
+    </ul>
+</div>
