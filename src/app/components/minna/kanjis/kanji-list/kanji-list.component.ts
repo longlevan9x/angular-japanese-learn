@@ -1,6 +1,8 @@
 import { Component, OnInit } from '@angular/core';
 import { KanjiModel } from '../../../../models/kanji.model';
 import { KanjiService } from '../../../../services/kanji.service';
+import { map } from 'rxjs/operators';
+import { ActivatedRoute } from '@angular/router';
 
 @Component({
     selector: 'app-kanji-list',
@@ -9,40 +11,31 @@ import { KanjiService } from '../../../../services/kanji.service';
 })
 export class KanjiListComponent implements OnInit {
     kanjis: KanjiModel[] = [];
+    lessonId: number = 0;
 
-    filterFn = {
-        structure: (value: string, item: KanjiModel) =>
-            item?.vocabulary == value,
-        mean: (value: string, item: KanjiModel) => item?.kanji == value,
-        explain: (value: string, item: KanjiModel) => item?.kanjiVN == value,
-    };
+    constructor(private kanjiService: KanjiService,
+        private activatedRoute: ActivatedRoute,
 
-    filters = {
-        structure: [
-            {
-                text: 'Empty',
-                value: '',
-            },
-        ],
-        mean: [
-            {
-                text: 'Empty',
-                value: '',
-            },
-        ],
-        explain: [
-            {
-                text: 'Empty',
-                value: '',
-            },
-        ],
-    };
-
-    constructor(private kanjiService: KanjiService) {}
+    ) { }
 
     ngOnInit(): void {
-        this.kanjiService.getKanjiN4MNN().subscribe((results) => {
-            this.kanjis = results as any;
+        this.activatedRoute.params.subscribe((params: any) => {
+            let lessonId: any = parseInt(params.id) ?? 0;
+            this.lessonId = lessonId;
+            this.getKanjis(lessonId);
         });
+    }
+
+    getKanjis(lessonId: number): void {
+        this.kanjiService
+            .getKanjiByLesson(lessonId)
+            .pipe(
+                map((data: any) =>
+                    data.filter((d: KanjiModel) => d.lesson === lessonId),
+                ),
+            )
+            .subscribe((results) => {
+                this.kanjis = results as any;
+            });
     }
 }

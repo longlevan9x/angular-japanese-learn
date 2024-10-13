@@ -50,8 +50,9 @@
                 </h2>
                 <div class="grid grid-cols-5 gap-2 mt-5">
                     <div *ngFor="let lesson of lessons; let i = index">
-                        <button (click)="onChangeLesson(i)" type="button" [nz-tooltip]="'Bài ' + (i + 1)"
-                            class="w-full text-center py-2 px-3 gap-x-2 text-sm font-medium rounded-lg border border-transparent bg-blue-600 text-white hover:bg-blue-700 focus:outline-none focus:bg-blue-700">
+                        <button [routerLink]="getLessonUrl(i)" type="button" [nz-tooltip]="'Bài ' + (i + 1)"
+                            class="w-full text-center py-2 px-3 gap-x-2 text-sm font-medium rounded-lg border border-transparent bg-blue-600 text-white hover:bg-blue-700 focus:outline-none focus:bg-red-700"
+                            [routerLinkActive]="'bg-red-700'">
                             {{ i + 1 }}
                         </button>
                     </div>

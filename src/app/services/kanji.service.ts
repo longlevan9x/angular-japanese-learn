@@ -12,4 +12,14 @@ export class KanjiService {
     getKanjiN4MNN(): Observable<KanjiModel> {
         return this.githubService.getKanjis('kanjiN4_MNN.json');
     }
+
+    getKanjiByLesson(lessonId: number) {
+        let url = 'kanjiN4_MNN.json';
+
+        if (lessonId <= 25) {
+            url = 'kanjiN5_MNN.json';
+        }
+
+        return this.githubService.getKanjis(url);
+    }
 }

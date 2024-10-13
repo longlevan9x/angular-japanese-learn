@@ -51,7 +51,7 @@ export class MinnaLayoutComponent implements OnInit {
         this.lessonId = this.getLessonIdFromUrl(url);
         this.lastPath = this.getLastSegment(url);
         this.subjectPath = this.getSubjectFromUrl(url);
-        
+
         this.checkSubjectNav();
     }
 
@@ -95,10 +95,8 @@ export class MinnaLayoutComponent implements OnInit {
         return this.parseUrl(url);
     }
 
-    onChangeLesson(id: number): void {
+    getLessonUrl(id: number): string {
         id = id + 1;
-        this.router.navigateByUrl(
-            this.router.url.replace(this.lessonId.toString(), id.toString()),
-        );
+        return this.router.url.replace(this.lessonId.toString(), id.toString());
     }
 }

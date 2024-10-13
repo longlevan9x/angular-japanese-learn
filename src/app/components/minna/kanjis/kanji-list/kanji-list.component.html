@@ -1,54 +1,24 @@
-<div >
-    <nz-table
-        #filterTable
-        [nzData]="kanjis"
-        nzTableLayout="fixed"
-        [nzShowPagination]="false"
-        [nzFrontPagination]="false"
-    >
-        <thead>
-            <tr class="bg-teal-100 text-teal-900">
-                <th class="w-1/12 px-4 py-2 text-left">Lesson</th>
-                <th class="w-2/12 px-4 py-2 text-left">Title</th>
-                <th
-                    class="w-3/12 px-4 py-2 text-left"
-                    [nzFilters]="filters.structure"
-                    [nzFilterFn]="filterFn.structure"
-                >
-                    Structure
-                </th>
-                <th
-                    class="w-4/12 px-4 py-2 text-left"
-                    [nzFilters]="filters.mean"
-                    [nzFilterFn]="filterFn.mean"
-                >
-                    Mean
-                </th>
-                <th
-                    class="w-3/12 px-4 py-2 text-left"
-                    [nzFilters]="filters.explain"
-                    [nzFilterFn]="filterFn.explain"
-                >
-                    Explain
-                </th>
+<div class="relative flex">
+    <table class="w-full text-sm text-left text-gray-500">
+        <thead class="text-gray-700 uppercase bg-gray-200">
+            <tr>
+                <th scope="col" class="px-6 py-3">Hán Tự</th>
+                <th scope="col" class="px-6 py-3">Âm Hán</th>
+                <th scope="col" class="px-6 py-3">Từ vựng</th>
             </tr>
         </thead>
         <tbody>
-            @for (data of filterTable.data; track data) {
-                <tr>
-                    <td class="w-1/12">{{ data.lesson }}</td>
-                    <td>{{ data.vocabulary }}</td>
-                    <td>
-                        {{ data.vocabulary }}
-                    </td>
-                    <td>
-                        {{ data.kanji }}
-                    </td>
-                    <td>
-                        {{ data.kanjiVN }}
-                    </td>
-                </tr>
-            }
+            <tr class="bg-white border-b hover:bg-gray-100" *ngFor="let kanji of kanjis">
+                <th scope="row" class="px-6 py-4 font-medium text-gray-600">
+                    {{ kanji.kanji }}
+                </th>
+                <th scope="row" class="px-6 py-4 font-medium text-gray-600">
+                    {{ kanji.kanjiVN }}
+                </th>
+                <th scope="row" class="px-6 py-4 font-medium text-gray-600">
+                    {{ kanji.vocabulary }}
+                </th>
+            </tr>
         </tbody>
-    </nz-table>
+    </table>
 </div>
