@@ -12,7 +12,6 @@ import { provideAnimationsAsync } from '@angular/platform-browser/animations/asy
 import { NZ_I18N, en_US } from 'ng-zorro-antd/i18n';
 import en from '@angular/common/locales/en';
 import { PromptComponent } from './components/prompts/prompt/prompt.component';
-import { KanjiListComponent } from './components/kanjis/kanji-list/kanji-list.component';
 import { NavComponent } from './components/layouts/nav/nav.component';
 import { LessonCardComponent } from './components/shareds/lesson-card/lesson-card.component';
 import { PracticeLayoutComponent } from './components/layouts/practice-layout/practice-layout.component';
@@ -20,6 +19,9 @@ import { MinnaLayoutComponent } from './components/layouts/minna-layout/minna-la
 import { VocabularyLessonListComponent } from './components/minna/vocabularies/vocabulary-lesson-list/vocabulary-lesson-list.component';
 import { VocabularyListComponent } from './components/minna/vocabularies/vocabulary-list/vocabulary-list.component';
 import { GrammarListComponent } from './components/minna/grammars/grammar-list/grammar-list.component';
+import { KanjiListComponent } from './components/minna/kanjis/kanji-list/kanji-list.component';
+import { MinnaLessonComponent } from './components/minna/minna-lesson/minna-lesson.component';
+import { MinnaLessonSubjectComponent } from './components/minna/minna-lesson-subject/minna-lesson-subject.component';
 
 registerLocaleData(en);
 
@@ -35,6 +37,8 @@ registerLocaleData(en);
         PracticeLayoutComponent,
         VocabularyLessonListComponent,
         MinnaLayoutComponent,
+        MinnaLessonComponent,
+        MinnaLessonSubjectComponent,
     ],
     imports: [
         BrowserModule,

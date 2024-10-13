@@ -1,9 +1,9 @@
-<div class="flex flex-col px-6 pt-6">
+<div class="flex flex-col px-6 ">
     <h2 class="text-xl font-semibold text-teal-700 mb-4">Danh sách bài học</h2>
 </div>
 <div>
     <div class="flex flex-col md:flex-row">
-        <div class="w-full md:w-1/2 bg-gray-50 p-6">
+        <div class="w-full md:w-1/2 bg-gray-50 px-6">
             <ul class="space-y-3">
                 <ng-container
                     *ngFor="let lesson of lessonsLeft"
@@ -14,7 +14,7 @@
             </ul>
         </div>
 
-        <div class="w-full md:w-1/2 bg-white p-6">
+        <div class="w-full md:w-1/2 bg-white px-6">
             <ul class="space-y-3">
                 <ng-container
                     *ngFor="let lesson of lessonsRight"
@@ -29,7 +29,7 @@
 
 <ng-template #lessonDetail let-lesson="lesson">
     <li
-        [routerLink]="lesson.id"
+        [routerLink]="lesson.url"
         class="p-3 bg-white border border-gray-200 rounded-md hover:bg-teal-100 cursor-pointer"
     >
         <h3 class="text-teal-600 font-semibold">{{ lesson.lesson }}</h3>

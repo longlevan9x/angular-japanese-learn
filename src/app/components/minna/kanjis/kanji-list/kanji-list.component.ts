@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
-import { KanjiModel } from '../../../models/kanji.model';
-import { KanjiService } from '../../../services/kanji.service';
+import { KanjiModel } from '../../../../models/kanji.model';
+import { KanjiService } from '../../../../services/kanji.service';
 
 @Component({
     selector: 'app-kanji-list',

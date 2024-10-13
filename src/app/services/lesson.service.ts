@@ -1,11 +1,12 @@
 import { Injectable } from '@angular/core';
 import { LessonModel } from '../models/lesson.model';
+import { SubjectModel } from '../models/subject';
 
 @Injectable({
     providedIn: 'root',
 })
 export class LessonService {
-    constructor() {}
+    constructor() { }
 
     private __genLessons(
         length: number,
@@ -27,5 +28,21 @@ export class LessonService {
 
     getVocabularyLessons(length: number, url: string = ''): LessonModel[] {
         return this.__genLessons(length, 'Từ vựng', url);
+    }
+
+    getSubjects(): SubjectModel[] {
+        const subjects: SubjectModel[] = [];
+
+        subjects.push({ name: 'Từ vựng', url: 'vocabulary' });
+        subjects.push({ name: 'Ngữ pháp', url: 'grammar' });
+        subjects.push({ name: 'Hán tự', url: 'kanji' });
+        subjects.push({ name: 'Luyện đọc' });
+        subjects.push({ name: 'Hội thoại' });
+        subjects.push({ name: 'Luyện nghe' });
+        subjects.push({ name: 'Bài tập' });
+        subjects.push({ name: 'Kiểm tra' });
+        subjects.push({ name: 'Tham khảo' });
+
+        return subjects;
     }
 }

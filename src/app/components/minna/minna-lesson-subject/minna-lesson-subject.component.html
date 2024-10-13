@@ -1,0 +1,9 @@
+<div class="w-full bg-white px-6">
+    <ul class="space-y-3">
+        <li *ngFor="let subject of subjects"
+        [routerLink]="'../'"
+            class="p-3 bg-white border border-gray-200 rounded-md hover:bg-teal-100 cursor-pointer">
+            <h3 class="text-teal-600 font-semibold">{{ subject.name }}</h3>
+        </li>
+    </ul>
+</div>

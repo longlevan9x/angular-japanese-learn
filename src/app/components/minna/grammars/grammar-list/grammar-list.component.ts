@@ -40,7 +40,6 @@ export class GrammarListComponent implements OnInit {
                     return r;
                 });
                 this.grammars = results as any;
-                console.log(this.grammars);
             });
     }
 

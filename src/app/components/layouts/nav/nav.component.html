@@ -7,39 +7,27 @@
             </div>
 
             <!-- Menu Items -->
-            <div class="hidden md:flex space-x-6">
+            <div class="hidden md:flex space-x-3">
                 <ng-container *ngFor="let nav of navs">
-                    <a
-                        [routerLink]="nav.path"
-                        *ngIf="!nav?.children?.length"
-                        class="text-teal-800 hover:text-teal-600 px-3 py-2 rounded-md text-sm font-medium"
-                    >
+                    <a [routerLink]="nav.path" *ngIf="!nav?.children?.length"
+                        class="text-teal-800 hover:text-teal-600 px-3 py-2 rounded-md text-sm font-medium">
                         {{ nav.name }}
                     </a>
 
                     <div class="relative group" *ngIf="nav?.children?.length">
                         <div class="flex items-center">
-                            <a
-                                class="text-teal-800 hover:text-teal-600 px-3 py-2 rounded-md text-sm font-medium"
-                            >
+                            <a [routerLink]="nav.path" class="text-teal-800 hover:text-teal-600 px-3 py-2 rounded-md text-sm font-medium">
                                 {{ nav.name }}
                             </a>
                         </div>
                         <div
-                            class="hidden group-hover:block absolute -left-8 top-full z-10 w-screen max-w-xs overflow-hidden rounded-md bg-white shadow-lg ring-1 ring-gray-900/5"
-                        >
+                            class="hidden group-hover:block absolute -left-8 top-full z-10 w-screen max-w-xs overflow-hidden rounded-md bg-white shadow-lg ring-1 ring-gray-900/5">
                             <div class="">
-                                <ng-container
-                                    *ngFor="let navChild of nav.children"
-                                >
-                                    <div
-                                        [routerLink]="navChild.path"
-                                        class="group relative flex items-center gap-x-6 rounded-lg p-4 pt-2 text-sm leading-6 hover:bg-gray-100"
-                                    >
+                                <ng-container *ngFor="let navChild of nav.children">
+                                    <div [routerLink]="navChild.path"
+                                        class="group relative flex items-center gap-x-6 rounded-lg p-4 pt-2 text-sm leading-6 hover:bg-gray-100">
                                         <div class="flex-auto">
-                                            <a
-                                                class="block font-semibold text-gray-900"
-                                            >
+                                            <a class="block font-semibold text-gray-900">
                                                 {{ navChild.name }}
                                             </a>
                                         </div>
@@ -53,23 +41,11 @@
 
             <!-- Mobile Menu Button -->
             <div class="md:hidden flex items-center">
-                <button
-                    type="button"
-                    class="text-teal-800 hover:text-teal-600 focus:outline-none"
-                >
-                    <svg
-                        class="h-6 w-6"
-                        xmlns="http://www.w3.org/2000/svg"
-                        fill="none"
-                        viewBox="0 0 24 24"
-                        stroke="currentColor"
-                    >
-                        <path
-                            stroke-linecap="round"
-                            stroke-linejoin="round"
-                            stroke-width="2"
-                            d="M4 6h16M4 12h16m-7 6h7"
-                        />
+                <button type="button" class="text-teal-800 hover:text-teal-600 focus:outline-none">
+                    <svg class="h-6 w-6" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24"
+                        stroke="currentColor">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                            d="M4 6h16M4 12h16m-7 6h7" />
                     </svg>
                 </button>
             </div>

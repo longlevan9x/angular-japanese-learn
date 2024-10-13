@@ -13,50 +13,86 @@ export class MinnaLayoutComponent implements OnInit {
     lessonId: number = 0;
     lessons: LessonModel[] = [];
     subjects: SubjectModel[] = [];
+    subjectPath: string = '';
+    lastPath = '';
+    isShowSubjectNav: boolean = false;
+
+    subjectLabel: {[name: string]: string} = {
+        vocabulary: "Từ vựng",
+        grammar: 'Ngữ pháp',
+        kanji: 'Hán tự'
+    };
 
     constructor(
         private activatedRoute: ActivatedRoute,
         private lessonService: LessonService,
         private router: Router,
-    ) {}
+    ) { }
 
     ngOnInit(): void {
-        this.lessonId = this.getLessonIdFromUrl(this.router.url);
+        this.urlHandle(this.router.url);
 
         this.router.events.subscribe((event: any) => {
             if (event instanceof NavigationEnd) {
-                this.lessonId = this.getLessonIdFromUrl(event.url);
+                this.urlHandle(event.url);
             }
         });
 
         this.lessons = this.lessonService.getVocabularyLessons(50);
 
-        this.subjects.push({ name: 'Từ vựng', url: 'vocabulary' });
-        this.subjects.push({ name: 'Ngữ pháp', url: 'grammar' });
-        this.subjects.push({ name: 'Hán tự', url: 'kanji' });
-        this.subjects.push({ name: 'Luyện đọc' });
-        this.subjects.push({ name: 'Hội thoại' });
-        this.subjects.push({ name: 'Luyện nghe' });
-        this.subjects.push({ name: 'Bài tập' });
-        this.subjects.push({ name: 'Kiểm tra' });
-        this.subjects.push({ name: 'Tham khảo' });
+        this.subjects = this.lessonService.getSubjects();
+    }
+
+    checkSubjectNav() {
+        this.isShowSubjectNav = this.lastPath != 'minna' ;
+    }
+
+    urlHandle(url: string): void {
+        this.lessonId = this.getLessonIdFromUrl(url);
+        this.lastPath = this.getLastSegment(url);
+        this.subjectPath = this.getSubjectFromUrl(url);
+        
+        this.checkSubjectNav();
     }
 
     getSubjectUrl(url?: string): string {
         return [url, this.lessonId].join('/');
     }
 
-    parseUrl(url: string): any[] {
+    parseUrl(url: string): string[] {
         return url.split('/');
     }
 
     getLessonIdFromUrl(url: string): number {
-        const segments = this.parseUrl(url);
+        return this.getSegmentNumberFromUrl(url, 1);
+    }
 
-        let lessonId = segments[segments.length - 1];
-        lessonId = parseInt(lessonId);
+    getSubjectFromUrl(url: string): string {
+        let subject = this.getSegmentFromUrl<string>(url, 2);
 
-        return isNaN(lessonId) ? 0 : lessonId;
+        return subject;
+    }
+
+    getSegmentFromUrl<T>(url: string, fromLastIndex: number): T {
+        const segments = this.getSegments(url);
+
+        let segment: any = segments[segments.length - fromLastIndex];
+
+        return segment as T;
+    }
+
+    getLastSegment(url: string): string {
+        return this.getSegmentFromUrl<string>(url, 1);
+    }
+
+    getSegmentNumberFromUrl(url: string, fromLastIndex: number): number {
+        const segment: number = this.getSegmentFromUrl(url, fromLastIndex);
+
+        return isNaN(segment) ? 0 : segment;
+    }
+
+    getSegments(url: string): string[] {
+        return this.parseUrl(url);
     }
 
     onChangeLesson(id: number): void {
